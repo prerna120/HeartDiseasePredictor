@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Montaga&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Numans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1.1rem;
+}
+
+body{
+    background-color: #d3e0e6;
+}
+
+/* Form fields */
+
+#header{
+    text-align: center;
+}
+
+.col,.row{
+    margin: 4% 1% 2%;
+}
+
+.heading{
+    font-family: 'Numans', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Navigation */
+
+.navbar-brand{
+    font-family: 'Montaga', serif;
+    font-size: 2rem;
+}
+
+
+h4{
+    font-family: 'Numans', sans-serif;
+    font-size: 1.5rem;
+}
+
+/* Feedback */
+
+
+.dark-box{
+    background-color: rgb(42, 46, 49);
+    color: rgb(248, 248, 250);
+}
+
