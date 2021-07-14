@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <!-- Bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script> 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+
+</head>
+<body>
+
+    <header id="header">
+        <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Heart Disease Predictor</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#feedback">Feedback</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+        <form action="/predict" method="POST" class="container-fluid">
+
+            <div class="row">
+
+                <div class="col-lg-3">
+                    <h4 class="heading">Age</h4>
+                    <div class="container-fluid">
+                        <input type="number" name="age">
+                    </div>
+                    <div class="form-text">
+                        (in years)
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <h4 class="heading">Gender</h4>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="gender" id="btnradio1" autocomplete="off" value="0">
+                        <label class="btn btn-outline-dark" for="btnradio1">Female</label>
+                      
+                        <input type="radio" class="btn-check" name="gender" id="btnradio2" autocomplete="off" value="1">
+                        <label class="btn btn-outline-dark" for="btnradio2">Male</label>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <h4 class="heading">Chest Pain Type</h4>
+                    <div class="container-fluid">
+                        <label class="visually-hidden" for="autoSizingSelect" name="cp">Preference</label>
+                        <select name="cp">
+                            <option selected>Choose...</option>
+                            <option value="0">Zero</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <h4 class="heading">Resting blood pressure</h4> 
+                    <div class="container-fluid">
+                        <input type="number" name="trestbps">
+                    </div>
+                    <div class="form-text">
+                        (in mm Hg)
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-3">
+                    <h4 class="heading">Serum cholestoral</h4> 
+                    <div class="container-fluid">
+                        <input type="number" name="chol">
+                    </div>
+                    <div class="form-text">
+                        (in mg/dl)
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <h4 class="heading">Is your fasting blood sugar &gt; 120 mg/dl ?</h4>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="fbs" id="btnradio3" autocomplete="off" value="1">
+                        <label class="btn btn-outline-dark" for="btnradio3">Yes</label>
+                      
+                        <input type="radio" class="btn-check" name="fbs" id="btnradio4" autocomplete="off" value="0">
+                        <label class="btn btn-outline-dark" for="btnradio4">No</label>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <h4 class="heading">Resting electrocardiographic results</h4>
+                    <div class="container-fluid">
+                        <label class="visually-hidden" for="autoSizingSelect" name="restecg">Preference</label>
+                        <select name="restecg">
+                            <option selected>Choose...</option>
+                            <option value="0">Zero</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <h4 class="heading">Maximum heart rate achieved</h4>
+                    <div class="container-fluid">
+                        <input type="number" name="thalach">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-4">
+                    <h4 class="heading">Exercise induced angina</h4>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" id="btnradio5" autocomplete="off" value="1" name="exang">
+                        <label class="btn btn-outline-dark" for="btnradio5">Yes</label>
+                      
+                        <input type="radio" class="btn-check" id="btnradio6" autocomplete="off" value="0" name="exang">
+                        <label class="btn btn-outline-dark" for="btnradio6">No</label>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <h4 class="heading">ST depression induced by exercise relative to rest</h4>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" id="btnradio7" autocomplete="off" value="1" name="oldpeak">
+                        <label class="btn btn-outline-dark" for="btnradio7">1</label>
+                      
+                        <input type="radio" class="btn-check" id="btnradio8" autocomplete="off" value="2" name="oldpeak">
+                        <label class="btn btn-outline-dark" for="btnradio8">2</label>
+
+                        <input type="radio" class="btn-check" id="btnradio9" autocomplete="off" value="3" name="oldpeak">
+                        <label class="btn btn-outline-dark" for="btnradio9">3</label>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <h4 class="heading">The slope of the peak exercise ST segment</h4>
+                    <div class="container-fluid">
+                        <input type="text" name="slope">
+                    </div>
+                    <div class="form-text">
+                        (eg. 2.5)
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <h4 class="heading">Number of major vesselscolored by flourosopy</h4>
+                    <div class="container-fluid">
+                        <label class="visually-hidden" name="ca" for="autoSizingSelect">Preference</label>
+                        <select name="ca">
+                            <option selected>Choose...</option>
+                            <option value="0">Zero</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <h4 class="heading">Type of defect</h4> 
+                    <div class="container-fluid">
+                        <label class="visually-hidden" name="thal" for="autoSizingSelect">Preference</label>
+                        <select name="thal" >
+                            <option selected>Choose...</option>
+                            <option value="1">Normal</option>
+                            <option value="2">Fixed Defect</option>
+                            <option value="3">Reversable Defect</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+    </header>
+
+    <!-- Output -->
+    <h2 id="output_text">{{prediction_text}}</h2>
+    
+    
+    <!-- Footer -->
+    <div class="container-fluid">
+        <div id="footer" class="row">
+
+            <!-- Feedback Section -->
+
+            <div id="feedback" class="col dark-box">
+                <div class="container-fluid">
+                    <form class="row g-3">
+                        <div class="col-md-6">
+                            <label for="Name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name">
+                        </div>
+    
+                        <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email_id">
+                        </div>
+                        
+                        <div class="col-12">
+                        <label for="inputAddress" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 xyx colony">
+                        </div>
+    
+                        <div class="col-12">
+                        <label for="inputAddress2" class="form-label">Feedback</label>
+                        <input type="text" class="form-control" id="feedback_text" placeholder="Suggestions">
+                        </div>
+    
+                        <div class="col-md-6">
+                        <label for="inputCity" class="form-label">City</label>
+                        <input type="text" class="form-control" id="inputCity">
+                        </div>
+    
+                        <div class="col-md-4">
+                        <label for="inputState" class="form-label">State</label>
+                        <select id="inputState" class="form-select">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                        </select>
+                        </div>
+    
+                        <div class="col-md-2">
+                        <label for="inputZip" class="form-label">Zip</label>
+                        <input type="text" class="form-control" id="inputZip">
+                        </div>
+    
+                        <div class="col-12">
+                        <button type="submit" class="btn btn-dark">Sign in</button>
+                        </div>
+    
+                    </form>
+                </div>
+                
+            </div>
+
+            <!-- <div class="col">
+                <img src="images/symptoms.jpg" class="img-fluid" alt="Symptoms of cardiac arrest">
+            </div> -->
+            
+
+            <div id="contact" class="col dark-box">
+
+                <div class="row">
+                    <div class="row">
+                        <div class="col col-lg-12">
+                            <h4>Helpline Numbers :</h4>
+                        </div>
+                        <div class="col col-lg-12">
+                            <h5> 24-hour Heart Helpline Number- (126-126) </h5>
+                            <h5> Heart Foundation- 13 11 12 </h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row border-top">
+                    <div class="row">
+                        <div class="col col-lg-12">
+                            <h4>Contact us :</h4>
+                        </div>
+                        <div class="col col-lg-12">
+                            <h5> +91-9644218209</h5>
+                            <h5>MANIT Bhopal</h5>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        
+    </div>
+    
+
+    <script src="script.js" charset="utf-8"></script>
+</body>
+</html>
